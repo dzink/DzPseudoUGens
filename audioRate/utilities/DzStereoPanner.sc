@@ -19,8 +19,8 @@ DzStereoPanner : UGen {
 			\direction, {0},
 			\dir, {0},
 			\directional, {0},
-			\rotate, {1}
-			\rot, {1}
+			\rotate, {1},
+			\rot, {1},
 			{ panAlgo }
 		);
 		pan = Select.kr(panAlgo, [[-1, 1] + (pan * 2), [-1, 1] * pan]).clip(-1, 1);
