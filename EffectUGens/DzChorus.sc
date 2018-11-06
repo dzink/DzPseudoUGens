@@ -1,3 +1,6 @@
+/**
+ * Multi-stage chorus.
+ */
 DzChorus : UGen {
 	*ar {
 		arg in, channels = 1, stages = 4, speed = 5, centerNote = 70, width = 12, walk = nil, decayTime = 0.1, spread = 1;

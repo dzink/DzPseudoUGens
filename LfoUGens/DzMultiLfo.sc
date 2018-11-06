@@ -1,3 +1,6 @@
+/**
+ * A multiple LFO generator. Used to switch between Lfo's.
+ */
 DzMultiLfo {
   *kr {
     arg speed = 1, phase = nil, width = nil, multi = nil, slew = nil, t_sync = 0, algo = 0, algos = [\saw];

@@ -1,3 +1,6 @@
+/**
+ * Euclidean rhythm generator.
+ */
 DzEuclidean : UGen {
 	*kr {
 		arg impulse, hits, length, offset;

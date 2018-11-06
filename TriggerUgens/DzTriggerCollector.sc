@@ -3,7 +3,6 @@
  * trigger. Use this to have multiple options for sources that should all
  * send a trigger.
  */
-
 DzTriggerCollector {
 	*kr {
 		arg ... triggers;
