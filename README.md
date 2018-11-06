@@ -17,3 +17,4 @@ As this repo has the potential to get very messy, use these guidelines to place 
 - All class names should be prefixed by "Dz" to prevent collisions, as I'm sure many other people have created similar collections.
 - Each class should be a kindOf the UGen superclass.
 - !IMPORTANT! A class that extends an existing class should be in its own file with the same name as the class it extends. Why are you hitting yourself?? Do not do this to yrself.
+- UGens that accept symbols as arguments should have multiple different overlapping symbols that will work. For example: \\dir, \\direction, \\directional should all map to the same value.
