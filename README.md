@@ -9,8 +9,8 @@ As this repo has the potential to get very messy, use these guidelines to place 
   - Utilities: UGens that perform simple but code-intensive tasks that are typical of a plurality of SynthDefs. NOT FUN UGENS.
 - Control Rate: Place UGens that return control rate signals here.
   - Algorithmic: UGens that follow some kind of algorithm to provide an output. All UGens technically use algorithms, but these algorithms should be fairly transparent.
-  - Lfo: Related to AlgorithmicUGens, but there will probably be enough of these to stick em in their own folder.
-- Triggers: Place UGens that return triggers here.
+  - Lfo: Related to AlgorithmicUGens, but there will probably be enough of these to stick em in their own folder so let's just start with them in their own folder.
+  - Triggers: Place UGens that return triggers here.
 
 ## Style Guidelines
 - Each class should have its own file, and the filename should match the class (so you can easily see what UGens you've already written - none of that typical SuperCollider nonsense where you wrap twenty UGens into a single file [although more power to those that do, I'm sure they've figured a way out to organize it]).
