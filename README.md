@@ -18,3 +18,4 @@ As this repo has the potential to get very messy, use these guidelines to place 
 - Each class should be a kindOf the UGen superclass.
 - !IMPORTANT! A class that extends an existing class should be in its own file with the same name as the class it extends. Why are you hitting yourself?? Do not do this to yrself.
 - UGens that accept symbols as arguments should have multiple different overlapping symbols that will work. For example: \\dir, \\direction, \\directional should all map to the same value.
+- All effects types of UGens should follow the same argument pattern: in, mix, [channels], [everything else]

@@ -3,7 +3,7 @@
  */
 DzChorus : UGen {
 	*ar {
-		arg in, channels = 1, stages = 4, speed = 5, centerNote = 70, width = 12, walk = nil, decayTime = 0.1, spread = 1;
+		arg in, mix = 0.5, channels = 1, stages = 4, speed = 5, centerNote = 70, width = 12, walk = nil, decayTime = 0.01, spread = 1;
 		var lfoWalk, lfoPhase, stageSpread, audio;
 		audio = in;
 
@@ -28,8 +28,11 @@ DzChorus : UGen {
 			lfo = SinOsc.kr(speed, stagePhase);
 			stageFreq = (centerNote + lfo.range(width.neg, width)).midicps;
 			stagePeriod = stageFreq.reciprocal - SampleDur.ir;
-			audio = audio - CombC.ar(audio, 0.01, stagePeriod, decayTime);
+			audio = audio + CombC.ar(in, 0.01, stagePeriod, decayTime);
 		};
+
+		audio = audio / stages.sqrt;
+		audio = SelectX.ar(mix, [in, audio]);
 		^ audio;
 	}
 }
