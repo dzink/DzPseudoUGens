@@ -14,7 +14,7 @@ DzDetune : UGen {
 		arg detune = 0.1, trigger = 1;
 		var random;
 		random = TRand.kr(0, 1, trigger);
-		random = if ((random < 0.5), { random - 1}, { random });
+		random = Select.kr(BinaryOpUGen('<', random, 0.5), [random, random - 1]);
 		^ detune * random;
 	}
 }
