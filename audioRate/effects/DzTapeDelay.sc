@@ -17,17 +17,16 @@ DzTapeDelay : UGen {
 		var audio = in;
 		audio = DzFeedbackSandwich.ar({
 			arg delayAudio;
+			if (pong.isNil().not) {
+				delayAudio = SelectX.kr(pong, [delayAudio, delayAudio.rotate(1)]);
+			};
 			delayAudio = audio + (delayAudio * regen);
-			delayAudio = Select.ar(delayPingPong, [delayAudio, delayAudio.rotate]);
 			delayAudio = DelayC.ar(delayAudio, maxDelay, delay);
 			if (loCut.isNil().not) {
 				delayAudio = HPF.ar(delayAudio, loCut);
 			};
 			if (hiCut.isNil().not) {
 				delayAudio = LPF.ar(delayAudio, hiCut);
-			};
-			if (pong.isNil().not) {
-				delayAudio = SelectX.kr(pong, [delayAudio, delayAudio.rotate(1)]);
 			};
 			delayAudio;
 		}, in.asArray().size());
