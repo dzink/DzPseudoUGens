@@ -25,8 +25,12 @@ DzChorus : UGen {
 			arg i;
 			var lfo, stagePhase, stageFreq, stagePeriod;
 			stagePhase = lfoPhase + (i * stageSpread) + lfoWalk;
-			lfo = SinOsc.kr(speed, stagePhase);
-			stageFreq = (centerNote + lfo.range(width.neg, width)).midicps;
+			lfo = if (speed.isNil.not) {
+				SinOsc.kr(speed, stagePhase).range(width.neg, width);
+			} {
+				0;
+			};
+			stageFreq = (centerNote + lfo).clip(30, 130).midicps;
 			stagePeriod = stageFreq.reciprocal - SampleDur.ir;
 			audio = audio + CombC.ar(in, 0.01, stagePeriod, decayTime);
 		};
